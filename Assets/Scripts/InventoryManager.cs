@@ -125,23 +125,23 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
-        {
-            ChangeSelection();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ConfirmSelection();
-        }
+        //if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K))
+        //{
+        //    ChangeSelection();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    ConfirmSelection();
+        //}
     }
 
-    private void ChangeSelection()
+    public void ChangeSelection(bool moveLeft)
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (moveLeft)
         {
             currentSelectedIndex -= 1;
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else
         {
             currentSelectedIndex += 1;
         }
@@ -156,7 +156,7 @@ public class InventoryManager : MonoBehaviour
         RefreshInventoryGUI();
     }
 
-    private void ConfirmSelection()
+    public void ConfirmSelection()
     {
         InventoryItem inventoryItem = itemsForPlayer[currentSelectedIndex];
         print("item selected is:" + inventoryItem.item.name);
