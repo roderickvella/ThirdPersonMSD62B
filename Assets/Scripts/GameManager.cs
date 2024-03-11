@@ -62,6 +62,27 @@ public class GameManager : MonoBehaviour
         else if(gameState== GameState.AreaB)
         {
             //deal with the coin
+            switch (key)
+            {
+                case "TAB":
+                    print("Hide coin in section B");
+                    GameObject.Find("Plane2/Coin").SetActive(false);
+                    break;
+            }
+
+        }
+    }
+
+    public void OnMouseButtonPressed(int mouse)
+    {
+        if(gameState == GameState.AreaA)
+        {
+            switch (mouse)
+            {
+                case 0:
+                    GameObject.Find("Player").GetComponent<PlayerManager>().ThrowGrenade();
+                    break;
+            }
         }
     }
 
